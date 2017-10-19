@@ -1,0 +1,64 @@
+<div class="info-management">
+  <div *ngIf="info.id;else other1_content">
+    <h4>Edit Information</h4>
+  </div>
+  <ng-template #other1_content>
+    <h4>Add Infomation</h4>
+  </ng-template>
+
+  <form #createForm="ngForm">
+    <div class="form-group">
+      <div class="col-md-3">
+        <label>
+          <span class="title">FirstName*:</span>
+        </label>
+      </div>
+      <input class="form-control" name="info-firstname" required type="text" [(ngModel)]="info.firstname" #firstname="ngModel"
+        [ngClass]="{'error': firstname.invalid && firstname.dirty} "  >
+      <div *ngIf="!info.firstname  && firstname.touched " class="style-error">
+        <span class="errors">Enter your firstname!!!</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-3">
+        <label>
+          <span class="title">LastName* :</span>
+        </label>
+      </div>
+
+      <input class="form-control" name="info-lastname" required type="text" [(ngModel)]="info.lastname" #lastname="ngModel"
+      [ngClass]="{'error': lastname.invalid && lastname.dirty} " >
+      <div *ngIf="!info.lastname && lastname.touched" class="style-error">
+        <span class="errors">Enter your lastname!!!!</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-3">
+        <label>
+          <span class="title">BirthDay:</span>
+        </label>
+      </div>
+      <input class="form-control" name="info-birthday" type="date" [(ngModel)]="info.birthday">
+    </div>
+
+    <div class="form-group group-button">
+      <div *ngIf="info.valid;else other_content">
+        <button  class="btn btn-info" (click)="editInfo(createForm);  ">Edit</button>
+      </div>
+
+      <ng-template #other_content>
+        <button class="btn btn-create" (click)="addInfo(createForm)" >Add</button>
+      </ng-template>
+      <ng-template #erroredit>
+      </ng-template>
+    </div>
+
+
+    <div [ngClass] ="(createForm.submitted && createForm.invalid)?'style-error hihi':'style-error haha' ">
+      <span class="errors">Vui lòng nhập đầy đủ thông tin!!!</span>
+    </div>
+
+  </form>
+</div>

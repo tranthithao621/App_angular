@@ -1,0 +1,43 @@
+.info-management{
+    width: 500px;
+    margin: 0 auto;
+}
+.form-control{
+    width: 300px;
+}
+h4{
+    margin: 35px;
+    text-align: center;
+}
+button{
+    margin-left: 50%;
+}
+
+p {
+    text-align: center;
+    color: red;
+    display: none;
+}
+.lastname{
+    border : 1px solid red;
+}
+
+.errors{
+    color: red;
+}
+
+.style-error{
+    text-align: center;
+}
+
+form .ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+.hihi{
+    display: block;
+}
+
+.haha{
+    display: none;
+}

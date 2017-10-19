@@ -1,0 +1,38 @@
+<h3>DANH SÁCH THÔNG TIN</h3>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>BirthDay</th>
+        <th></th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let infos of info"  >
+        <td>{{infos.id}} </td>
+        <td>{{infos.firstname}} </td>
+        <td>{{infos.lastname}} </td>
+        <td>{{infos.birthday}} </td>
+        <td><a  data-toggle="modal" data-target=".bs-example-modal-sm" (click)="getId(infos)"> Delete </a></td>
+        <td><a routerLink="/edit/{{infos.id}}"> Edit </a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <h4 class="modal-title">Modal title</h4>
+      <hr> Xóa thiệt đó nha!!
+      <hr>
+      <button class="btn btn-default" data-dismiss="modal">Close</button>
+      <button class="btn btn-primary" (click)="deleteInfo()" data-toggle="modal" data-target=".bs-example-modal-sm" > <span class="glyphicon glyphicon-heart"></span> Delete</button>
+    </div>
+
+  </div>
+</div>
